@@ -1,7 +1,7 @@
 CREATE TABLE users
 (
     id SERIAL,
-    email text,
+    email text UNIQUE,
     password text,
     CONSTRAINT users_pkey PRIMARY KEY (id)
 );
