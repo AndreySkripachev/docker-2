@@ -7,6 +7,5 @@ CREATE TABLE users
 );
 
 INSERT INTO users(email, password) VALUES
- ('Meadow Crystalfreak ', 'Head of Operations'),
- ('Buddy-Ray Perceptor', 'DevRel'),
- ('Prince Flitterbell', 'Marketing Guru');
+ ('andrey.skripachev@gmail.com', 'password'),
+ ('qwe@qwe.qwe', 'qwe123qwe');
