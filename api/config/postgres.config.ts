@@ -1,5 +1,5 @@
 import { ConnectionConfig } from 'pg'
-import { environment } from '../environment/environment'
+import { environment } from './environment/environment'
 
 const { host, password, user } = environment.postgres
 

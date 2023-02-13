@@ -11,6 +11,6 @@
     "forceConsistentCasingInFileNames": true,
     "rootDir": "api"
   },
-  "include": [ "api/*" ],
+  "include": [ "api/*", "api/config/environment" ],
   "exclude": [ "node_modules" ]
 }
