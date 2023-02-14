@@ -8,7 +8,7 @@ import { ServerResponseCode } from '../core/enums/server-response';
 import { isEmailValid } from '../core/utils/validators/is-email-valid';
 
 export const authRoute: Route = {
-  '/auth/login': {
+  '/auth/login/': {
     [Method.Post]: async(req, res) => {
       const body = await parseRequestBody<UserConstructionData>(req);
       const canAuthorize = await User.checkAuthenticationData(new User(body));
@@ -27,9 +27,12 @@ export const authRoute: Route = {
       res.writeHead(200, { 'Content-Type': 'application/json' });
       res.write(JSON.stringify(token));
       res.end();
-    }
+    },
+    [Method.Options]: async(req, res) => {
+      res.end();
+    },
   },
-  '/auth/register': {
+  '/auth/register/': {
     [Method.Post]: async(req, res) => {
       const body = await parseRequestBody<UserConstructionData>(req);
 
@@ -65,6 +68,9 @@ export const authRoute: Route = {
       res.writeHead(200, { 'Content-Type': 'application/json' });
       res.write(JSON.stringify(token));
       res.end();
-    }
+    },
+    [Method.Options]: async(req, res) => {
+      res.end();
+    },
   },
 }

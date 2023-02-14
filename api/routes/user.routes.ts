@@ -6,17 +6,18 @@ import { Token } from "../records/token.record";
 import { User } from "../records/user.record";
 
 export const userRoute: Route = {
-  '/users': {
+  '/users/': {
     [Method.Get]: async(req, res) => {
       const users = await User.getAllUsers();
 
       res.writeHead(ServerResponseCode.OK, { 'Content-Type': 'application/json' })
       res.write(JSON.stringify(users));
       res.end();
-    }
+    },
   },
-  '/user/profile': {
+  '/users/profile/': {
     [Method.Get]: async(req, res) => {
+      console.log(JSON.stringify(req.headers, null, 2));
       const authToken = req.headers.authorization;
 
       if (!authToken) {
@@ -48,6 +49,10 @@ export const userRoute: Route = {
           'Invalid authorization token',
         );
       }
-    }
+    },
+    [Method.Options]: async(req, res) => {
+      console.log(JSON.stringify(req.headers, null, 2));
+      res.end();
+    },
   }
 }
