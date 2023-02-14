@@ -20,3 +20,19 @@ export function sendErrorResponse(
   }))
   res.end();
 }
+
+export function sendAuthorizationErrorResponse(
+  res: ServerResponse,
+  code: ServerResponseCode,
+  field: string,
+  message: string,
+): void {
+  res.writeHead(code, { 'Content-Type': 'application/json' });
+  res.write(JSON.stringify({
+    data: MAP_ERROR_CODE_TO_MESSAGE[code],
+    detail: {
+      [field]: message,
+    }
+  }));
+  res.end();
+}

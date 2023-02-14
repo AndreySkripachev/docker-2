@@ -16,15 +16,15 @@ export function serverListener(
   const url = req.url;
 
   if (url in routes && method in routes[url]) {
-    const endpoint = routes[url][method];
+    const route = routes[url][method];
 
-    endpoint(req, res);
+    route(req, res);
     return;
   }
 
   sendErrorResponse(
     res,
     ServerResponseCode.NotFound,
-    'Cannot find current endpoint',
+    'Cannot find current route',
   )
 }
