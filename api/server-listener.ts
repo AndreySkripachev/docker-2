@@ -15,8 +15,6 @@ export function serverListener(
   const method = req.method as Method ?? Method.Get;
   const url = req.url;
 
-  console.log(method, url);
-
   if (url in routes && method in routes[url]) {
     const route = routes[url][method];
 

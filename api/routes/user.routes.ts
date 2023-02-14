@@ -17,7 +17,6 @@ export const userRoute: Route = {
   },
   '/users/profile/': {
     [Method.Get]: async(req, res) => {
-      console.log(JSON.stringify(req.headers, null, 2));
       const authToken = req.headers.authorization;
 
       if (!authToken) {
@@ -51,7 +50,6 @@ export const userRoute: Route = {
       }
     },
     [Method.Options]: async(req, res) => {
-      console.log(JSON.stringify(req.headers, null, 2));
       res.end();
     },
   }
